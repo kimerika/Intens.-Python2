@@ -1,0 +1,29 @@
+import os
+
+# Создаем словари для хранения имен
+boy_names = {}
+girl_names = {}
+
+# Проходим по каждому файлу в директории и собираем данные
+for filename in os.listdir("path/to/data/folder"):
+    with open(os.path.join("path/to/data/folder", filename)) as f:
+        for line in f:
+            name, _, count = line.strip().split(",")
+            count = int(count)
+            # Разделяем имена мальчиков и девочек
+            if filename.endswith("_Boys.csv"):
+                boy_names[name] = boy_names.get(name, 0) + count
+            elif filename.endswith("_Girls.csv"):
+                girl_names[name] = girl_names.get(name, 0) + count
+
+# Получаем лидеров по популярности
+popular_boy_names = sorted(boy_names, key=boy_names.get, reverse=True)[:10]
+popular_girl_names = sorted(girl_names, key=girl_names.get, reverse=True)[:10]
+
+print("Самые популярные имена для мальчиков:")
+for name in popular_boy_names:
+    print(name)
+
+print("\nСамые популярные имена для девочек:")
+for name in popular_girl_names:
+    print(name)

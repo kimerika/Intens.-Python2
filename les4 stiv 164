@@ -1,0 +1,52 @@
+import csv
+
+# Запросим у пользователя год и имя файла
+year = input("Введите год: ")
+filename = "path/to/folder/names_{}.csv".format(year)
+
+# Проверим, существует ли файл с данными по именам
+if not os.path.isfile(filename):
+    print("Ошибка: нет данных для указанного года.")
+else:
+    boy_names = []
+    girl_names = []
+    both_names = []
+
+    # Открываем файл и обрабатываем данные
+    with open(filename, "r") as f:
+        reader = csv.reader(f)
+        for row in reader:
+            # Извлекаем данные из каждой строки
+            name, gender, count = row
+            count = int(count)
+            # В зависимости от пола добавляем имя в соответствующий список,
+            # или общий список, если это универсальное имя
+            if gender == "M":
+                if name.lower() in ("chris", "alex"):
+                    both_names.append(name)
+                else:
+                    boy_names.append(name)
+            elif gender == "F":
+                if name.lower() in ("chris", "alex"):
+                    both_names.append(name)
+                else:
+                    girl_names.append(name)
+
+    # Если есть имена, используемые только для мальчиков, выведем их на экран
+    if boy_names:
+        print("Имена для мальчиков:")
+        for name in boy_names:
+            print(name)
+    # Если есть имена, используемые только для девочек, выведем их на экран
+    if girl_names:
+        print("Имена для девочек:")
+        for name in girl_names:
+            print(name)
+    # Если есть универсальные имена, выведем их на экран
+    if both_names:
+        print("Универсальные имена:")
+        for name in both_names:
+            print(name)
+    # Если нет имен, для которых указан пол, выведем сообщение об ошибке
+    if not boy_names and not girl_names and not both_names:
+        print("Ошибка: нет данных по именам за указанный год.")

@@ -1,0 +1,21 @@
+roman_numerals = {'M': 1000, 'D': 500, 'C': 100, 'L': 50, 'X': 10, 'V': 5, 'I': 1}
+
+# Рекурсивная функция, которая переводит римскую запись числа в десятичную систему
+def roman_to_decimal(s):
+    if s == "":
+        return 0
+    elif len(s) == 1:
+        return roman_numerals[s]
+    elif roman_numerals[s[0]] < roman_numerals[s[1]]:
+        return roman_numerals[s[1]] - roman_numerals[s[0]] + roman_to_decimal(s[2:])
+    else:
+        return roman_numerals[s[0]] + roman_to_decimal(s[1:])
+
+# Запрашиваем у пользователя римское число
+roman_numeral = input("Введите римское число: ")
+
+# Преобразуем римское число в десятичное
+decimal_num = roman_to_decimal(roman_numeral)
+
+# Выводим результат на экран
+print(decimal_num)

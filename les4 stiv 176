@@ -1,0 +1,24 @@
+phonetic_alphabet = {'A': 'Alfa', 'B': 'Bravo', 'C': 'Charlie', 'D': 'Delta', 'E': 'Echo', 'F': 'Foxtrot',
+                     'G': 'Golf', 'H': 'Hotel', 'I': 'India', 'J': 'Juliett', 'K': 'Kilo', 'L': 'Lima',
+                     'M': 'Mike', 'N': 'November', 'O': 'Oscar', 'P': 'Papa', 'Q': 'Quebec', 'R': 'Romeo',
+                     'S': 'Sierra', 'T': 'Tango', 'U': 'Uniform', 'V': 'Victor', 'W': 'Whiskey', 'X': 'X-ray',
+                     'Y': 'Yankee', 'Z': 'Zulu'}
+
+# Рекурсивная функция, которая преобразует букву в соответствующее слово в фонетическом алфавите
+def phonetic_word(s):
+    if len(s) == 1:
+        return phonetic_alphabet.get(s.upper(), s)
+    else:
+        return phonetic_alphabet.get(s[0].upper(), s[0]) + ' ' + phonetic_word(s[1:])
+
+# Запрашиваем у пользователя слово
+word = input("Введите слово: ")
+
+# Преобразуем слово в фонетический алфавит
+result = ""
+for c in word:
+    if c.isalpha():
+        result += phonetic_word(c) + ' '
+
+# Выводим результат на экран
+print(result.strip())

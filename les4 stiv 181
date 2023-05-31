@@ -1,0 +1,16 @@
+def can_make_change(amount, coins, num_coins):
+    if amount == 0:
+        return True
+    elif amount < 0 or num_coins == 0:
+        return False
+    else:
+        return can_make_change(amount - coins[num_coins - 1], coins, num_coins) or \
+               can_make_change(amount, coins, num_coins - 1)
+
+amount = int(input("Введите сумму: "))
+num_coins = int(input("Введите количество монет: "))
+coins = [1, 5, 10, 25] # доступные номиналы монет
+if can_make_change(amount, coins, num_coins):
+    print("Можно собрать", amount, "центов из", num_coins, "монет")
+else:
+    print("Нельзя собрать", amount, "центов из", num_coins, "монет")

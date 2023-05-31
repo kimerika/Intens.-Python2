@@ -1,0 +1,28 @@
+import sqlite3
+
+# Подключение к базе данных
+conn = sqlite3.connect('babynames.db')
+cur = conn.cursor()
+
+# Запрос года начала периода времени
+start_year = input("Введите год начала периода: ")
+
+# Запрос года конца периода времени
+end_year = input("Введите год конца периода: ")
+
+# Запрос на получение самых популярных имен за данный период
+cur.execute('''SELECT * FROM
+             (SELECT name, sex, SUM(number) as total
+             FROM babynames
+             WHERE year BETWEEN ? AND ?
+             GROUP BY name, sex)
+             ORDER BY total DESC LIMIT 10''', (start_year, end_year))
+
+# Вывод результатов на экран
+print("Самые популярные имена с", start_year, "по", end_year)
+
+for name in cur.fetchall():
+    print(name[0], '-', name[1])
+
+# Закрытие базы данных
+conn.close()

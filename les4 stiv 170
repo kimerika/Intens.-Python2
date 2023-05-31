@@ -1,0 +1,38 @@
+import os
+import sys
+
+# функция, которая проверяет, есть ли блок комментариев перед объявлением функции
+def has_comments(source_lines, start_index):
+    for i in range(start_index-1, -1, -1):
+        line = source_lines[i].strip()
+        if line.startswith('"""') or line.startswith("'''"):
+            return True
+        if line.startswith('#'):
+            continue
+        else:
+            return False
+    return False
+
+# функция, которая находит все функции без блока комментариев в заданном файле и выводит информацию о них
+def find_functions_without_comments(filename):
+    try:
+        with open(filename, "r") as f:
+            source_lines = f.readlines()
+    except FileNotFoundError:
+        print(f"Файл {filename} не найден.")
+        return
+
+    for i, line in enumerate(source_lines):
+        if line.startswith('def ') and not has_comments(source_lines, i):
+            function_name = line.split()[1]
+            print(f"Функция {function_name} без комментариев в файле {filename} на строке {i+1}")
+
+# получаем список имен файлов из аргументов командной строки
+if len(sys.argv) < 2:
+    print("Нужно указать хотя бы один файл для обработки.")
+    sys.exit()
+file_list = sys.argv[1:]
+
+# обрабатываем каждый файл в списке
+for filename in file_list:
+    find_functions_without_comments(filename)

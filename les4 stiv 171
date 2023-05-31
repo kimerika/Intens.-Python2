@@ -1,0 +1,21 @@
+def wrap_text(text, width):
+    lines = []
+    words = text.split()
+    i = 0
+    while i < len(words):
+        line = words[i]
+        while i < len(words)-1 and len(line) + len(words[i+1]) + 1 <= width:
+            i += 1
+            line += ' ' + words[i]
+        lines.append(line)
+        i += 1
+    return '\n'.join(lines)
+
+file_name = input("Введите имя файла для чтения: ")
+line_width = int(input("Введите желаемую длину строки: "))
+
+with open(file_name, 'r') as f:
+    text = f.read()
+
+wrapped_text = wrap_text(text, line_width)
+print(wrapped_text)

@@ -1,0 +1,45 @@
+# Создаем словарь для хранения информации об элементах
+elements = {}
+
+# Читаем файл с информацией об элементах
+with open('elements.txt', 'r') as file:
+    for line in file:
+        # Разделяем строку с информацией об элементе на элементы словаря
+        symbol, name, atomic_number = line.strip().split(',')
+        # Добавляем элемент в словарь
+        elements[symbol] = {'name': name, 'atomic_number': int(atomic_number)}
+
+# Запрашиваем данные у пользователя до тех пор, пока он не оставит ввод пустым
+while True:
+    value = input('Введите значение: ')
+
+    # Если пользователь не ввел значение, прерываем цикл
+    if not value:
+        break
+
+    # Пытаемся преобразовать введенное значение в целое число
+    try:
+        atomic_number = int(value)
+        # Проверяем, есть ли такой элемент с указанным количеством протонов
+        for key, value in elements.items():
+            if value['atomic_number'] == atomic_number:
+                print(key, '-', value['name'])
+                break
+        else:
+            print(f'Элемента с {atomic_number} протонами не существует')
+    except ValueError:
+        # Если введенное значение не является целым числом, считаем его обозначением или названием элемента
+        if value in elements:
+            print(f'{value} - {elements[value]["name"]}, {elements[value]["atomic_number"]} протонов')
+        else:
+            symbol = ''
+            name = ''
+            # Ищем элемент, у которого обозначение или название начинаются с введенного значения
+            for key, value in elements.items():
+                if key.startswith(value) or value['name'].startswith(name):
+                    symbol = key
+                    name = value['name']
+                    print(f'{symbol} - {name}, {value["atomic_number"]} протонов')
+                    break
+            else:
+                print(f'Элемент {value} не найден')

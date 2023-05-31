@@ -1,0 +1,25 @@
+VOWELS_ORDER = ["A", "E", "I", "O", "U", "Y"]
+
+# функция, которая проверяет, содержит ли слово все гласные буквы в правильном порядке
+def has_vowels_in_order(word):
+    vowels = [v for v in VOWELS_ORDER if v in word]
+    return vowels == VOWELS_ORDER
+
+# получаем имя файла для чтения
+filename = input("Введите имя файла для чтения: ")
+
+# пытаемся открыть файл и найти нужные слова
+try:
+    with open(filename, "r") as f:
+        words = f.read().split()
+        found_words = [word for word in words if has_vowels_in_order(word.upper())]
+        if len(found_words) == 0:
+            print("Нет слов, содержащих все гласные буквы в правильном порядке.")
+        else:
+            print("Найденные слова:")
+            for word in found_words:
+                print(word)
+except FileNotFoundError:
+    print("Файл не найден.")
+except:
+    print("Произошла ошибка при чтении файла.")

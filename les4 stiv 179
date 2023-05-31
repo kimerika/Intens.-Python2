@@ -1,0 +1,14 @@
+# Рекурсивная функция, которая вычисляет квадратный корень
+def sqrt\_recursive(n, guess = 1.0):
+ if abs(guess \* guess - n) < 1e-12:
+ return guess
+ else:
+ new\_guess = (guess + n / guess) / 2
+ return sqrt\_recursive(n, new\_guess)
+
+# Вычисляем квадратный корень для нескольких чисел и выводим результаты на экран
+numbers = [2, 4, 9, 16, 25, 36, 49]
+
+for n in numbers:
+ result = sqrt\_recursive(n)
+ print(f"Квадратный корень из {n} равен {result:.5f}")

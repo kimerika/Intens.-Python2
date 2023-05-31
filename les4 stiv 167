@@ -1,0 +1,38 @@
+import sys
+
+# Проверяем, передан ли аргумент командной строки
+if len(sys.argv) < 2:
+    print("Ошибка! Необходимо передать имя файла в аргументах командной строки.")
+    sys.exit()
+
+# Имя файла задается первым аргументом командной строки
+filename = sys.argv[1]
+
+# Открываем файл на чтение
+try:
+    with open(filename, 'r') as f:
+        # Читаем файл и удаляем знаки препинания
+        words = f.read().replace(',', '').replace('.', '').replace('!', '').replace('?', '').replace('-', '').lower().split()
+except FileNotFoundError:
+    print("Ошибка! Файл не найден.")
+    sys.exit()
+
+# Открываем словарь на чтение
+try:
+    with open('dictionary.txt', 'r') as f:
+        # Читаем словарь и получаем список слов в нижнем регистре
+        dictionary = [word.strip().lower() for word in f.readlines()]
+except FileNotFoundError:
+    print("Ошибка! Словарь не найден.")
+    sys.exit()
+
+# Создаем список неправильно написанных слов
+misspelled_words = [word for word in words if word not in dictionary]
+
+# Выводим результат проверки на экран
+if not misspelled_words:
+    print("Все слова написаны правильно.")
+else:
+    print("Неправильно написанные слова:")
+    for word in misspelled_words:
+        print(word)

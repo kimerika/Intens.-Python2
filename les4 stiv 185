@@ -1,0 +1,15 @@
+def decode(lst):
+    result = []
+    i = 0
+    while i < len(lst):
+        if isinstance(lst[i], int):
+            result.extend([lst[i-1]] * lst[i])
+        else:
+            result.append(lst[i])
+        i += 1
+    return result
+
+encoded_lst = ["A", 12, "B", 4, "A", 6, "B", 1]
+decoded_lst = decode(encoded_lst)
+print(decoded_lst) # Output: ['A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'B', 'B', 'B', 'B', 'A', 'A', 'A', 'A', 'A', 'A', 'B']
+

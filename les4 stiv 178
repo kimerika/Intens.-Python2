@@ -1,0 +1,17 @@
+# Рекурсивная функция, которая проверяет, является ли строка палиндромом
+def is_palindrome(s):
+    if len(s) < 2:
+        return True
+    elif s[0] != s[-1]:
+        return False
+    else:
+        return is_palindrome(s[1:-1])
+
+# Запрашиваем у пользователя слово
+word = input("Введите слово: ")
+
+# Проверяем, является ли слово палиндромом
+if is_palindrome(word):
+    print("Да, это палиндром.")
+else:
+    print("Нет, это не палиндром.")

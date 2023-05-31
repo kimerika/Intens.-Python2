@@ -1,0 +1,23 @@
+import string
+
+filename = 'example.txt'
+
+frequency = {letter: 0 for letter in string.ascii_lowercase}  # создаем словарь для подсчета частоты букв в тексте
+
+with open(filename, 'r') as file:
+    text = file.read().lower()  # читаем файл и приводим к нижнему регистру
+    text = text.translate(str.maketrans('', '', string.punctuation))  # удаляем знаки препинания
+
+    for word in text.split():
+        for letter in word:
+            if letter in frequency:
+                frequency[letter] += 1  # обновляем количество букв в словаре
+
+total_words = sum(frequency.values())  # общее количество слов в тексте
+
+for letter, count in frequency.items():
+    percentage = round((count / total_words) * 100, 2)  # вычисляем процент использования буквы
+    print(f'Буква {letter.upper()} встречается в тексте с частотой {percentage}%')
+
+rarest = min(frequency, key=frequency.get)  # находим букву, которая встречается наименее часто
+print(f'\nБуква {rarest.upper()} встречается в тексте реже всего')

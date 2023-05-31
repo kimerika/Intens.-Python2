@@ -1,0 +1,35 @@
+import csv
+
+def get_next_element(current_element, elements, used_elements):
+    # находим все элементы, начинающиеся на последнюю букву текущего элемента
+    next_elements = [element for element in elements if element[0] == current_element[-1] and element not in used_elements]
+    if len(next_elements) == 0:
+        return None # если таких элементов нет, то возвращаем None
+    # для каждого элемента из возможных следующих выбираем максимальную последовательность
+    sequences = [(elem, get_next_sequence(elem, elements, used_elements | {elem})) for elem in next_elements]
+    return max(sequences, key=lambda s: len(s[1])) # выбираем максимальную по длине
+
+def get_next_sequence(current_element, elements, used_elements):
+    # находим следующий элемент в последовательности
+    next_element = get_next_element(current_element, elements, used_elements)
+    if next_element is None:
+        return [current_element] # базовый случай
+    # рекурсивно находим дальнейшую часть последовательности
+    return [current_element] + get_next_sequence(next_element[0], elements, used_elements | {next_element[0]})
+
+elements = {}
+with open('elements.csv', 'r', encoding='utf-8') as csvfile:
+    reader = csv.reader(csvfile, delimiter=',')
+    for row in reader:
+        name, symbol = row[2], row[3] # считываем название и обозначение элемента
+        elements[symbol.lower()] = name # добавляем в словарь, обозначение в нижнем регистре
+
+start_element = input("Введите стартовый элемент: ")
+if start_element not in elements:
+    print("Вы ввели несуществующий элемент.")
+else:
+    sequence = get_next_sequence(start_element, elements, {start_element})
+    print("Полученная последовательность: ", end="")
+    for element in sequence:
+        print(elements[element].title(), end=" -> ")
+    print("...")
