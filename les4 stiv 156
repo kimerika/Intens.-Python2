@@ -1,0 +1,17 @@
+total_sum = 0
+
+while True:
+    user_input = input("Введите число (для выхода просто нажмите Enter): ")
+    if user_input == "":
+        break
+        
+    try:
+        number = float(user_input)
+    except ValueError:
+        print("Введенное значение не является числом!")
+        continue
+        
+    total_sum += number
+    print(f"Текущая сумма чисел: {total_sum}")
+    
+print(f"Итоговая сумма чисел: {total_sum}")

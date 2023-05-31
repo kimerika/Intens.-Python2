@@ -1,0 +1,20 @@
+grades_dict = {"A": 5, "B": 4, "C": 3, "D": 2, "F": 1}
+
+while True:
+    user_input = input("Введите оценку для перевода (для выхода просто нажмите Enter): ")
+    if user_input == "":
+        break
+        
+    try:
+        grade = int(user_input)
+        letter_grade = list(grades_dict.keys())[list(grades_dict.values()).index(grade)]
+        print(f"{grade} - {letter_grade}")
+        
+    except ValueError:
+        try:
+            letter_grade = user_input.upper()
+            numeric_grade = grades_dict[letter_grade]
+            print(f"{letter_grade} - {numeric_grade}")
+            
+        except KeyError:
+            print(f"Введенное значение '{user_input}' не является допустимой оценкой!")

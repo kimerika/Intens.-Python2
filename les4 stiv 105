@@ -1,0 +1,36 @@
+def convert_to_decimal(n, base):
+    # Преобразуем число в десятичную систему счисления
+    decimal = 0
+    for digit in n:
+        decimal *= base
+        digit_value = int(digit, base)
+        decimal += digit_value
+    return decimal
+
+def convert_from_decimal(n, base):
+    # Преобразуем десятичное число в другую систему счисления
+    digits = []
+    while n > 0:
+        remainder = n % base
+        digits.append(str(remainder))
+        n //= base
+    digits.reverse()
+    return ''.join(digits)
+
+if name == "main":
+    # Запрашиваем исходную систему счисления, целевую систему и число
+    source_base = int(input("Введите исходную систему счисления (от 2 до 16): "))
+    target_base = int(input("Введите целевую систему счисления (от 2 до 16): "))
+    number = input("Введите число для преобразования: ")
+
+    # Проверяем, что введены корректные значения систем счисления
+    if not 2 <= source_base <= 16 or not 2 <= target_base <= 16:
+        print("Ошибка: некорректное основание системы счисления.")
+    else:
+        # Преобразуем число из исходной системы счисления в десятичную
+        decimal_number = convert_to_decimal(number, source_base)
+        # Преобразуем десятичное число в целевую систему счисления
+        target_number = convert_from_decimal(decimal_number, target_base)
+
+        # Выводим результат
+        print("Число", number, "в системе счисления", source_base, "равняется", target_number, "в системе счисления", target_base)

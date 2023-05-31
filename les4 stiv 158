@@ -1,0 +1,27 @@
+# запрос имен файлов у пользователя
+input_file = input("Введите имя исходного файла: ")
+output_file = input("Введите имя файла, куда будет сохранено новое содержимое: ")
+
+try:
+    # открываем исходный файл
+    with open(input_file, 'r') as f_in:
+        # читаем содержимое файла в список строк
+        lines = f_in.readlines()
+        
+    # открываем новый файл
+    with open(output_file, 'w') as f_out:
+        # проходимся по каждой строке в исходном файле
+        for line in lines:
+            # удаляем комментарии
+            stripped_line = line.split('#')[0].rstrip() + '\n'
+            # записываем новую строку в новый файл
+            f_out.write(stripped_line)
+            
+except FileNotFoundError:
+    print(f"Файл {input_file} не найден!")
+    
+except PermissionError:
+    print(f"У вас нет разрешения на доступ к файлу {input_file} или {output_file}!")
+    
+except:
+    print("Произошла ошибка при обработке файла!")

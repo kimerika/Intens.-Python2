@@ -1,0 +1,27 @@
+import sys
+import string
+
+if len(sys.argv) != 2:
+    print('Usage: python frequency_analysis.py filename')
+else:
+    filename = sys.argv[1]
+    try:
+        with open(filename, 'r') as file:
+            content = file.read()
+            content = content.lower()
+            content = ''.join(c for c in content if c not in string.punctuation and not c.isdigit() and not c.isspace())
+
+            counts = {}
+            for char in content:
+                if char in counts:
+                    counts[char] += 1
+                else:
+                    counts[char] = 1
+
+            total = sum(counts.values())
+            for char in counts:
+                frequency = counts[char] / total
+                print(f'{char}: {frequency}')
+
+    except FileNotFoundError:
+        print(f'File {filename} not found')

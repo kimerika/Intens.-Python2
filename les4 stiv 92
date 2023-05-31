@@ -1,0 +1,27 @@
+
+
+import datetime
+
+def ordinalToDate(year, ordinal):
+    """
+    This function converts an ordinal date (year and day of year) to a standard date (year, month and day)
+    """
+    date = datetime.datetime(year, 1, 1)
+    delta = datetime.timedelta(days=ordinal-1)
+    return date + delta
+
+def getFutureDate():
+    """
+    This function asks the user for an ordinal date and the number of days to add to get the future date.
+    It prints the future date in year, month, day format.
+    """
+    ordinal = int(input("Enter the ordinal date (year and day of year): "))
+    days = int(input("Enter the number of days to add: "))
+    year = ordinalToDate(ordinal[0], ordinal[1]).year
+    futureDate = ordinalToDate(year, ordinal[1]+days)
+    print("The future date is: ", futureDate.strftime("%Y-%m-%d"))
+
+# Testing the function with an example
+
+getFutureDate()
+

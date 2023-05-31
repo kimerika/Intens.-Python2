@@ -1,0 +1,22 @@
+import random
+import string
+from ex_100 import is_password_strong
+
+def generate_random_password(length=8):
+    # Генерируем случайный пароль заданной длины из случайных символов и цифр
+    password = ''.join(random.choices(string.ascii_letters + string.digits, k=length))
+    return password
+
+def find_password(number_of_attempts=1000):
+    password_strong = False
+    attempts = 0
+    while not password_strong and attempts <= number_of_attempts:
+        attempts += 1
+        password = generate_random_password()
+        password_strong = is_password_strong(password)
+    return password, attempts
+
+if name == "main":
+    password, attempts = find_password()
+    print("Случайный пароль, отвечающий требованиям надежности:", password)
+    print("Количество попыток:", attempts)

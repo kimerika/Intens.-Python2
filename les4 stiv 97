@@ -1,0 +1,24 @@
+
+def precedence(operator):
+    """
+    Функция для определения приоритета математического оператора 
+    """
+    if operator in ['+', '-']:
+        return 1
+    elif operator in ['*', '/']:
+        return 2
+    elif operator == '^':
+        return 3
+    else:
+        return -1
+    
+
+# Проверка работы функции
+if __name__ == '__main__':
+    operator = input('Введите математический оператор: ')
+    priority = precedence(operator)
+    
+    if priority == -1:
+        print('Введен неверный оператор')
+    else:
+        print(f'Приоритет оператора "{operator}" равен {priority}')

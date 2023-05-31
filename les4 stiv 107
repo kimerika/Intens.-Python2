@@ -1,0 +1,14 @@
+def reduce_fraction(numerator, denominator):
+    gcd = 1
+    smaller = min(numerator, denominator)
+    for i in range(2, smaller+1):
+        if numerator % i == 0 and denominator % i == 0:
+            gcd = i
+    return numerator // gcd, denominator // gcd
+
+numerator = int(input("Введите числитель: "))
+denominator = int(input("Введите знаменатель: "))
+
+reduced_numerator, reduced_denominator = reduce_fraction(numerator, denominator)
+
+print("Сокращенная дробь: ", reduced_numerator, "/", reduced_denominator)

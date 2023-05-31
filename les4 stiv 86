@@ -1,0 +1,14 @@
+
+def taxi_cost(distance):
+    # переводим расстояние в мили, так как тариф указан в милях
+    distance = distance * 0.621371 
+    # базовый тариф $4.00
+    base_fee = 4.00
+    # каждые 140 мили стоят $0.25
+    mileage_fee = 0.25
+    miles = distance / 0.140
+    # округляем количество миль до ближайшего целого вверх
+    miles = ceil(miles)
+    # вычисляем стоимость
+    cost = base_fee + miles * mileage_fee
+    return cost

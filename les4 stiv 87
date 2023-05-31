@@ -1,0 +1,12 @@
+
+def delivery_cost(num_items):
+    # стоимость первого товара - $10.95
+    first_item_cost = 10.95
+    # стоимость каждого последующего товара - $2.95
+    additional_item_cost = 2.95
+    if num_items == 1:
+        # если заказ только на 1 товар, доставка стоит $10.95
+        return first_item_cost
+    else:
+        # иначе добавляем $2.95 за каждый дополнительный товар
+        return first_item_cost + (num_items - 1) * additional_item_cost

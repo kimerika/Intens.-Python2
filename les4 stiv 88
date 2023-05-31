@@ -1,0 +1,10 @@
+
+def median_of_three(num1, num2, num3):
+    # создаем список из трех чисел
+    nums = [num1, num2, num3]
+    # сортируем список
+    nums.sort()
+    # находим индекс среднего элемента списка
+    median_index = len(nums) // 2
+    # возвращаем средний элемент списка
+    return nums[median_index]

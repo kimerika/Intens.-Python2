@@ -1,0 +1,31 @@
+
+wind_directions = [1, 2, 2, 3, 2, 4, 3, 3, 1, 2, 5, 5, 6, 5, 7, 6, 5, 7, 7, 1, 2, 2, 3, 4, 4, 4, 4, 5, 6, 7, 8, 1, 2, 3, 4, 4, 5, 6, 6, 7]
+
+wind_frequencies = {}
+
+for direction in wind_directions:
+    if direction not in wind_frequencies:
+        wind_frequencies[direction] = 1
+    else:
+        wind_frequencies[direction] += 1
+
+min_wind_direction = min(wind_frequencies, key=wind_frequencies.get)
+
+print("Для минимизации ветра со стороны металлургического комбината необходимо расположить жилой комплекс так, чтобы дома были направлены к", end=" ")
+if min_wind_direction == 1:
+    print("северу.")
+elif min_wind_direction == 2:
+    print("югу.")
+elif min_wind_direction == 3:
+    print("востоку.")
+elif min_wind_direction == 4:
+    print("западу.")
+elif min_wind_direction == 5:
+    print("северо-западу.")
+elif min_wind_direction == 6:
+    print("северо-востоку.")
+elif min_wind_direction == 7:
+    print("юго-западу.")
+elif min_wind_direction == 8:
+    print("юго-востоку.")
+

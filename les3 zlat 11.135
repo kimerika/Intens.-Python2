@@ -1,0 +1,11 @@
+
+scores = [3, 1, 0, 1, 3, 1, 1, 0, 0, 1, 3]
+
+first_win_index = scores.index(3)
+first_loss_index = scores.index(0)
+
+if first_win_index < first_loss_index:
+    print("Поставлен первый выигрыш раньше, чем первый проигрыш.")
+else:
+    print("Поставлен первый проигрыш раньше, чем первый выигрыш.")
+

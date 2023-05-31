@@ -1,0 +1,9 @@
+
+numbers = [5, 11, -3, 8, 2, 9, 2, -2, 5]
+min_index = numbers.index(min(numbers))
+max_index = numbers.index(max(numbers))
+
+if min_index < max_index:
+   print("Минимальное число встретится раньше максимального")
+else:
+   print("Максимальное число встретится раньше минимального")

@@ -1,0 +1,15 @@
+with open('file.txt') as f:
+    text = f.read()
+
+longest_word_length = 0
+longest_words = []
+
+for word in text.split():
+    word_length = len(word.strip(',."\'!?;:()-'))
+    if word_length > longest_word_length:
+        longest_word_length = word_length
+        longest_words = [word]
+    elif word_length == longest_word_length:
+        longest_words.append(word)
+
+print(f"The longest word(s) have {longest_word_length} characters: {', '.join(longest_words)}")

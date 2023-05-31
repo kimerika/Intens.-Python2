@@ -1,0 +1,39 @@
+# Слова, которые удовлетворяют правилу "I before E except after C", будут сохранены в этом списке
+ie_words = []
+# Слова, которые не удовлетворяют этому правилу, будут сохранены в этом списке
+ei_words = []
+
+# Читаем текстовый файл построчно
+with open('words.txt', 'r') as file:
+    for line in file:
+        # Разбиваем каждую строку на список слов
+        words = line.strip().split()
+        # Проходим по каждому слову и проверяем, удовлетворяет ли оно правилу "I before E except after C"
+        for word in words:
+            if 'ei' in word:
+                # Если пара "ei" присутствует в слове, то проверяем, удовлетворяет ли оно правилу
+                if 'cei' in word:
+                    ie_words.append(word)
+                else:
+                    ei_words.append(word)
+            elif 'ie' in word:
+                # Если пара "ie" присутствует в слове, то проверяем, удовлетворяет ли оно правилу
+                if 'cie' in word:
+                    ei_words.append(word)
+                else:
+                    ie_words.append(word)
+
+# Удаляем повторяющиеся слова из списков
+ie_words = list(set(ie_words))
+ei_words = list(set(ei_words))
+
+# Выводим списки и длину каждого из них
+print('Слова, следующие правилу "I before E except after C":')
+for w in ie_words:
+    print(w)
+print('Количество слов, следующих правилу: ', len(ie_words), '\n')
+
+print('Слова, не следующие правилу:')
+for w in ei_words:
+    print(w)
+print('Количество слов, не следующих правилу: ', len(ei_words))

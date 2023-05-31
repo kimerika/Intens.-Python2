@@ -1,0 +1,20 @@
+
+import task_98
+
+def nextPrime(n):
+    """
+    Функция для поиска следующего простого числа после n
+    """
+    i = n + 1
+    while True:
+        if task_98.isPrime(i):
+            return i
+        i += 1
+
+
+# Проверка работы функции
+if __name__ == '__main__':
+    number = int(input('Введите целое число: '))
+    result = nextPrime(number)
+    print(f'Первое простое число, большее {number}: {result}')
+

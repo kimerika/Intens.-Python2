@@ -1,0 +1,9 @@
+input_filename = input('Enter the input file name: ')
+output_filename = input('Enter the output file name: ')
+
+try:
+    with open(input_filename, 'r') as input_file, open(output_filename, 'w') as output_file:
+        for i, line in enumerate(input_file, start=1):
+            output_file.write(f'{i}: {line}')
+except FileNotFoundError:
+    print('File not found')

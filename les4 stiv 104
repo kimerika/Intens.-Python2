@@ -1,0 +1,27 @@
+def hex2int(hex_val):
+    try:
+        int_val = int(hex_val, 16)
+    except ValueError:
+        print("Неверное значение")
+        return None
+    
+    if int_val < 0 or int_val > 15:
+        print("Неверное значение")
+        return None
+    
+    return int_val
+
+def int2hex(int_val):
+    if int_val < 0 or int_val > 15:
+        print("Неверное значение")
+        return None
+    
+    hex_val = hex(int_val)[2:].upper()
+    return hex_val
+
+if name == "main":
+    # Примеры использования
+    hex_value = "D"
+    int_value = 11
+    print("Шестнадцатеричное значение", hex_value, "переведено в десятичное:", hex2int(hex_value))
+    print("Десятичное значение", int_value, "переведено в шестнадцатеричное:", int2hex(int_value))

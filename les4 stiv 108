@@ -1,0 +1,41 @@
+def convert_measurements(amount, unit):
+    cups = 0
+    tablespoons = 0
+    teaspoons = 0
+
+    # переводим все в чайные ложки
+    if unit == "cups":
+        teaspoons = amount * 48
+    elif unit == "tablespoons":
+        teaspoons = amount * 3
+    else:
+        teaspoons = amount
+
+    # вычисляем количество стаканов, столовых и чайных ложек
+    while teaspoons >= 48:
+        cups += 1
+        teaspoons -= 48
+    while teaspoons >= 3:
+        tablespoons += 1
+        teaspoons -= 3
+
+    # создаем строку с результатом
+    result = ""
+    if cups > 0:
+        result += str(cups) + " cup"
+        if cups > 1:
+            result += "s"
+    if tablespoons > 0:
+        if result != "":
+            result += ", "
+        result += str(tablespoons) + " tablespoon"
+        if tablespoons > 1:
+            result += "s"
+    if teaspoons > 0:
+        if result != "":
+            result += ", "
+        result += str(teaspoons) + " teaspoon"
+        if teaspoons > 1:
+            result += "s"
+
+    return result

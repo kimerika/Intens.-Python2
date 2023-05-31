@@ -1,0 +1,20 @@
+def is_password_strong(password):
+    # Проверяем, соответствует ли пароль заданным критериям надежности
+    if len(password) < 8:
+        return False
+    if not any(char.isdigit() for char in password):
+        return False
+    if not any(char.isupper() for char in password):
+        return False
+    if not any(char.islower() for char in password):
+        return False
+    return True
+
+if __name__ == "__main__":
+    # Запрашиваем у пользователя пароль
+    password = input("Введите пароль для проверки: ")
+
+    if is_password_strong(password):
+        print("Пароль достаточно надежный")
+    else:
+        print("Пароль недостаточно надежный")

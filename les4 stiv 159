@@ -1,0 +1,16 @@
+import random
+
+with open('words.txt', 'r') as file:
+    words = file.read().splitlines()
+
+first_word = random.choice([w for w in words if len(w) >= 3])
+second_word = random.choice([w for w in words if len(w) >= 3])
+
+password = first_word.capitalize() + second_word.capitalize() + str(random.randint(0, 100))
+
+while len(password) < 8 or len(password) > 10:
+    first_word = random.choice([w for w in words if len(w) >= 3])
+    second_word = random.choice([w for w in words if len(w) >= 3])
+    password = first_word.capitalize() + second_word.capitalize() + str(random.randint(0, 100))
+
+print(password)

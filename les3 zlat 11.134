@@ -1,0 +1,10 @@
+
+ages = [25, 20, 34, 32, 20, 28, 19, 30, 34, 19, 25, 23]
+
+oldest_person_index = ages.index(max(ages))
+youngest_person_index = ages.index(min(ages))
+
+if youngest_person_index < oldest_person_index:
+    print("Самый молодой человек указан в списке раньше.")
+else:
+    print("Самый старый человек указан в списке раньше.")

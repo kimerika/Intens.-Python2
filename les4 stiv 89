@@ -1,0 +1,7 @@
+
+lang = 'ru'
+for i in range(1, 13):
+    ordinal = to_ordinal(i)
+    if ordinal:
+        print(f'{i} - {ordinal}')
+

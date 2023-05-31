@@ -1,0 +1,29 @@
+
+array = [4, 6, 1, 8, 3, 2, 9, 5, 7]
+
+# определение максимального элемента и элемента, являющегося максимальным без учета этого элемента
+max_el = max(array)
+array.remove(max_el)
+max_el_without = max(array)
+
+print('Максимальный элемент:', max_el)
+print('Максимальный элемент без учета:', max_el_without)
+
+# определение минимального элемента и элемента, являющегося минимальным без учета этого элемента
+min_el = min(array)
+array.remove(min_el)
+min_el_without = min(array)
+
+print('Минимальный элемент:', min_el)
+print('Минимальный элемент без учета:', min_el_without)
+
+# определение номеров максимального и минимального элементов в массиве
+max_index = [i for i, x in enumerate(array) if x == max_el]
+max_without_index = [i for i, x in enumerate(array) if x == max_el_without]
+min_index = [i for i, x in enumerate(array) if x == min_el]
+min_without_index = [i for i, x in enumerate(array) if x == min_el_without]
+
+print('Номера максимального элемента:', max_index)
+print('Номера максимального элемента без учета:', max_without_index)
+print('Номера минимального элемента:', min_index)
+print('Номера минимального элемента без учета:', min_without_index)

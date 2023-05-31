@@ -1,0 +1,27 @@
+
+def isInteger(string):
+    """
+    Функция для проверки, является ли строка целочисленным значением 
+    """
+    string = string.strip()
+    if len(string) == 0:
+        return False
+    
+    # удаление возможного знака "+" или "-"
+    if string[0] in ['+', '-']:
+        string = string[1:]
+        
+    # проверка, состоит ли строка целиком из цифр
+    for char in string:
+        if not char.isdigit():
+            return False
+    return True
+    
+
+# проверка работы функции
+if __name__ == '__main__':
+    string = input('Введите строку: ')
+    if isInteger(string):
+        print(f'Строка "{string}" является целым числом')
+    else:
+        print(f'Строка "{string}" не является целым числом')

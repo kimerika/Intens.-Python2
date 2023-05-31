@@ -1,0 +1,12 @@
+# задаем названия городов
+city1 = "Москва"
+city2 = "Санкт-Петербург"
+city3 = "Нижний Новгород"
+
+# находим самое длинное и короткое название
+longest_name = max(city1, city2, city3, key=len)
+shortest_name = min(city1, city2, city3, key=len)
+
+# выводим результат
+print("Самое длинное название города:", longest_name)
+print("Самое короткое название города:", shortest_name)

@@ -1,0 +1,19 @@
+
+import random
+
+def generate_password():
+    """
+    Функция для генерации случайного пароля
+    """
+    length = random.randint(7, 10)
+    password = ''
+    
+    for i in range(length):
+        password += chr(random.randint(33, 126))
+        
+    return password
+
+
+# проверка работы функции
+if __name__ == '__main__':
+    print('Сгенерированный пароль:', generate_password())

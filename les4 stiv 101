@@ -1,0 +1,24 @@
+import random
+
+# Функция для генерации номера в старом формате
+def generate_old_format():
+    letters = "".join([chr(i) for i in range(ord('A'), ord('Z')+1)]) # все буквы английского алфавита
+    letters_part = ''.join(random.choices(letters, k=3)) # генерируем 3 буквы
+    digits_part = ''.join(random.choices("0123456789", k=3)) # генерируем 3 цифры
+    return letters_part + digits_part
+
+# Функция для генерации номера в новом формате
+def generate_new_format():
+    digits_part = ''.join(random.choices("0123456789", k=4)) # генерируем 4 цифры
+    letters = "".join([chr(i) for i in range(ord('A'), ord('Z')+1)]) # все буквы английского алфавита
+    letters_part = ''.join(random.choices(letters, k=3)) # генерируем 3 буквы
+    return digits_part + letters_part
+
+def generate_license_plate():
+    if random.random() < 0.5: # с равной вероятностью генерируем номер в старом или новом формате
+        return generate_old_format()
+    else:
+        return generate_new_format()
+
+# выводим сгенерированный номер
+print(generate_license_plate())
