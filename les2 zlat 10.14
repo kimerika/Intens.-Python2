@@ -1,0 +1,30 @@
+
+import random 
+
+# Задаем количество игроков и кубиков:
+num_players = 3
+num_dice = 3
+
+# Создаем список для хранения сумм очков каждого игрока:
+sums = [0] * num_players
+
+# Бросаем каждый кубик указанное количество раз:
+for i in range(num_dice):
+    for j in range(num_players):
+        roll = random.randint(1, 6)
+        sums[j] += roll
+
+# Определяем максимальную сумму:
+max_sum = max(sums)
+
+# Определяем индексы игроков с максимальной суммой:
+winners = [i for i in range(num_players) if sums[i] == max_sum]
+
+# Выводим результат:
+if len(winners) == 1:
+    print("Игрок", winners[0]+1, "победил с результатом", max_sum, "очков.")
+else:
+    print("Ничья между игроками", end=" ")
+    for i in winners:
+        print(i+1, end=" ")
+    print("с результатом", max_sum, "очков.")

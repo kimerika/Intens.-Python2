@@ -1,0 +1,9 @@
+array = [3, 5, 2, 1, 4, 6, 7]
+average = sum(array) / len(array)
+
+closest = array[0]
+for i in range(len(array)):
+    if abs(array[i]-average) < abs(closest-average):
+        closest = array[i]
+
+print(f"The element closest to the average ({average:.2f}) is {closest}")

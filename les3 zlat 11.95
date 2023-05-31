@@ -1,0 +1,11 @@
+lst = [2, 8, 4, 1, 9, 3]
+
+total_sum = sum(lst)
+
+indexes = []
+for i in range(len(lst)):
+    if lst[i] > total_sum:
+        indexes.append(i)
+
+print("Количество элементов, больших суммы всех элементов массива:", len(indexes))
+print("Их индексы:", indexes)

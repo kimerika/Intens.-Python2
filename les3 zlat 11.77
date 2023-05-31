@@ -1,0 +1,15 @@
+# Определяем массив
+numbers = [5, -3, 0, 2, -9, 1, 7, -6, 4, -2]
+# Инициализируем переменные счетчиков
+positive_count = 0
+negative_count = 0
+# Используем цикл для прохода по всем элементам массива
+for number in numbers:
+    if number > 0:
+        positive_count += 1
+    elif number < 0:
+        negative_count += 1
+# Выводим результаты
+print("Количество положительных элементов: ", positive_count)
+print("Количество отрицательных элементов: ", negative_count)
+

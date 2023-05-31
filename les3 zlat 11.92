@@ -1,0 +1,25 @@
+# задаем массивы с ростом учеников класса
+heights = [160, 155, -145, 170, -165, 150, 155, -140, -165, 175, 165, 165, -160, -155, 170, 165, 160, -150, 160, 160, 175, -155, 165]
+boys_heights = []
+girls_heights = []
+
+# разделяем рост учеников на мальчиков и девочек
+for height in heights:
+    if height < 0:
+        boys_heights.append(height)
+    else:
+        girls_heights.append(height)
+        
+# вычисляем средний рост мальчиков
+if len(boys_heights) > 0:
+    boys_avg = sum(boys_heights) / len(boys_heights)
+    print("Средний рост мальчиков составляет", -boys_avg, "сантиметров")
+else:
+    print("В классе нет мальчиков")
+    
+# вычисляем средний рост девочек
+if len(girls_heights) > 0:
+    girls_avg = sum(girls_heights) / len(girls_heights)
+    print("Средний рост девочек составляет", girls_avg, "сантиметров")
+else:
+    print("В классе нет девочек")

@@ -1,0 +1,5 @@
+rain = [5, 10, 15, 20, 25, 30, 50, 10, 5, 0, 0, 0, 2, 5, 10, 15, 20, 25, 4, 2, 5, 10, 20, 30, 40, 25, 10]
+max_rain = max(rain)  # находим максимальное количество осадков
+max_rain_day_first = rain.index(max_rain) + 1  # ищем номер первого дня
+max_rain_day_last = len(rain) - rain[::-1].index(max_rain)  # ищем номер последнего дня
+print(f'Самый дождливый день июля был {max_rain} июля {max_rain_day_first}-го и {max_rain_day_last}-го')

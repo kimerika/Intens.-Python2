@@ -1,0 +1,6 @@
+candy_prices = [200, 150, 300, 250, 100, 400, 100, 150, 200] # список с ценами на конфеты
+min_price = min(candy_prices) # находим минимальную цену на конфеты
+min_price_index_first = candy_prices.index(min_price) + 1  # находим индекс первого вхождения минимальной цены
+min_price_index_last = len(candy_prices) - candy_prices[::-1].index(min_price) # находим индекс последнего вхождения
+print(f'Самые дешевые конфеты стоят {min_price} рублей за килограмм. Их порядковый номер (первый) - {min_price_index_first}. Их порядковый номер (последний) - {min_price_index_last}.')
+

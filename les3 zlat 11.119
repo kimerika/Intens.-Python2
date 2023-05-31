@@ -1,0 +1,10 @@
+
+scores = [7.5, 8.2, 7.0, 8.5, 7.8, 9.0, 6.5, 8.0]
+
+scores.remove(max(scores))
+scores.remove(min(scores))
+
+average_score = sum(scores) / len(scores)
+
+print("Средняя оценка спортсмена:", average_score)
+

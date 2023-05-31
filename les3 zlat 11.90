@@ -1,0 +1,27 @@
+
+arr = [2, -3, 4, -5, 6, -7]
+positive_count = 0
+positive_sum = 0
+negative_count = 0
+negative_sum = 0
+
+for elem in arr:
+    if elem > 0:
+        positive_sum += elem
+        positive_count += 1
+    elif elem < 0:
+        negative_sum += elem
+        negative_count += 1
+
+if positive_count > 0:
+    positive_avg = positive_sum / positive_count
+    print("Среднее арифметическое положительных элементов массива:", positive_avg)
+else:
+    print("Нет положительных элементов в массиве")
+    
+if negative_count > 0:
+    negative_avg = negative_sum / negative_count
+    print("Среднее арифметическое отрицательных элементов массива:", negative_avg)
+else:
+    print("Нет отрицательных элементов в массиве")
+

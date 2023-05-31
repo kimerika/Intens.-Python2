@@ -1,0 +1,9 @@
+
+numbers = [5, 10, 15, 10, 20, 5, 25, 10, 30]
+max_number = max(numbers)  # находим максимальное число
+min_number = min(numbers)  # находим минимальное число
+max_count = numbers.count(max_number)  # находим количество максимальных чисел в массиве
+min_count = numbers.count(min_number)  # находим количество минимальных чисел в массиве
+print(f'Количество максимальных элементов в массиве: {max_count}')
+print(f'Количество минимальных элементов в массиве: {min_count}')
+

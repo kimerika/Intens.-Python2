@@ -1,0 +1,4 @@
+import random
+
+arr = [random.uniform(-50, 50) for _ in range(15)]
+print(arr)

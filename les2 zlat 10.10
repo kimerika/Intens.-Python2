@@ -1,0 +1,67 @@
+
+import random
+
+print("Выберите: 1 - нечет, 2 - чет")
+user_choice = int(input("Введите число: "))
+computer_choice = random.choice([1, 2])
+print("Компьютер выбрал: ", computer_choice)
+
+if user_choice == computer_choice:
+    print("Вы победили")
+else:
+    print("Вы проиграли")
+```
+
+А вот возможный код для варианта (б):
+```python
+import random
+
+score_user = 0
+score_computer = 0
+rounds = int(input("Введите количество игр: "))
+
+for i in range(rounds):
+    print("Игра ", i + 1)
+    print("Выберите: 1 - нечет, 2 - чет")
+    user_choice = int(input("Введите число: "))
+    computer_choice = random.choice([1, 2])
+    print("Компьютер выбрал: ", computer_choice)
+
+    if user_choice == computer_choice:
+        score_user += 1
+        print("Вы победили в этой игре")
+    else:
+        score_computer += 1
+        print("Вы проиграли в этой игре")
+
+if score_user > score_computer:
+    print("Счет: {}:{} в вашу пользу. Вы выиграли!".format(score_user, score_computer))
+else:
+    print("Счет: {}:{} в пользу компьютера. Вы проиграли!".format(score_user, score_computer))
+```
+
+А вот возможный код для варианта (в):
+```python
+import random
+
+score_user = 0
+score_computer = 0
+play_again = "Да"
+
+while play_again != "Нет":
+    print("Выберите: 1 - нечет, 2 - чет")
+    user_choice = int(input("Введите число: "))
+    computer_choice = random.choice([1, 2])
+    print("Компьютер выбрал: ", computer_choice)
+
+    if user_choice == computer_choice:
+        score_user += 1
+        print("Вы победили в этой игре")
+    else:
+        score_computer += 1
+        print("Вы проиграли в этой игре")
+
+    play_again = input("Продолжить еще раз? (Да/Нет): ").capitalize()
+
+print("Количество верных ответов: ", score_user)
+print("Количество неверных ответов: ", score_computer)

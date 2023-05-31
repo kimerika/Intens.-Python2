@@ -1,0 +1,14 @@
+lst = [3, 6, 9, 2, 7, 12, -1, 8]
+
+min_val = min(lst)
+max_val = max(lst)
+
+mean_val = (min_val + max_val) / 2
+
+indexes = []
+for i in range(len(lst)):
+    if lst[i] > mean_val:
+        indexes.append(i)
+
+print("Количество элементов массива, значение которых больше среднего арифметического минимального и максимального элементов:", len(indexes))
+print("Их номера:", indexes)

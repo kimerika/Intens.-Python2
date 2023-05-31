@@ -1,0 +1,15 @@
+array = [2, -3, 5, 4, -6, -2, 8, 0, -1]
+
+positive_sum = 0
+negative_sum = 0
+for i in array:
+    if i > 0:
+        positive_sum += i
+    elif i < 0:
+        negative_sum += i
+
+if negative_sum == 0:
+    print("Невозможно выполнить деление на ноль")
+else:
+    quotient = positive_sum / abs(negative_sum)
+    print("Частное от деления суммы положительных элементов на модуль суммы отрицательных элементов равно: ", quotient)

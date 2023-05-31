@@ -1,0 +1,26 @@
+array = [15, 17, 10, 21, 30, 45, 53, 70, 85, 92]
+
+# а)
+sum_of_elements_more_than_20 = 0
+for i in array:
+    if i > 20:
+        sum_of_elements_more_than_20 += i
+
+print("Сумма элементов, которые больше 20: ", sum_of_elements_more_than_20)
+if sum_of_elements_more_than_20 > 100:
+    print("Сумма элементов, которые больше 20, превышает 100")
+else:
+    print("Сумма элементов, которые больше 20, не превышает 100")
+
+# б)
+sum_of_elements_less_than_50 = 0
+for i in array:
+    if i < 50:
+        sum_of_elements_less_than_50 += i
+
+print("Сумма элементов, которые меньше 50: ", sum_of_elements_less_than_50)
+if sum_of_elements_less_than_50 % 2 == 0:
+    print("Сумма элементов, которые меньше 50, является четным числом")
+else:
+    print("Сумма элементов, которые меньше 50, не является четным числом")
+

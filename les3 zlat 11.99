@@ -1,0 +1,11 @@
+january_precipitation = [12, 5, 16, 4, 9, 2, 1, 8, 3, 7, 10, 6, 13, 18, 11, 14, 7, 9, 5, 20, 22, 15, 3, 4, 6, 1, 11, 8, 7, 9]
+average_precipitation = sum(january_precipitation) / len(january_precipitation)
+
+above_average_days = []
+for i in range(len(january_precipitation)):
+    if january_precipitation[i] > average_precipitation:
+        above_average_days.append(i+1)
+
+print("Days of January with precipitation above the average for the month:")
+for day in above_average_days:
+    print("Day", day)

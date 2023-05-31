@@ -1,0 +1,16 @@
+
+array = [3, 6, 8, 2, 9, 1, 8, 2, 7, 4, 5, 7]
+
+# Найти номера элементов с минимальным значением
+min_value = min(array)
+min_indexes = [index for index, value in enumerate(array) if value == min_value]
+
+print("Номера элементов с минимальным значением:")
+print(min_indexes)
+
+# Найти номера элементов с максимальным значением
+max_value = max(array)
+max_indexes = [index for index, value in enumerate(array) if value == max_value]
+
+print("Номера элементов с максимальным значением:")
+print(max_indexes)

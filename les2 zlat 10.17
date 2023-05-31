@@ -1,0 +1,17 @@
+
+import random
+
+# создаем список всех возможных костей домино
+dominoes = [(i, j) for i in range(7) for j in range(i, 7)]
+
+# выбираем две кости наугад
+random.shuffle(dominoes)
+bone1, bone2 = dominoes[:2]
+
+# проверяем, можно ли их приставить друг к другу
+if bone1[1] == bone2[0]:
+    print('Можно приставить кость', bone1, 'к кости', bone2)
+elif bone2[1] == bone1[0]:
+    print('Можно приставить кость', bone2, 'к кости', bone1)
+else:
+    print('Кости', bone1, 'и', bone2, 'не могут быть приставлены друг к другу в соответствии с правилами домино.')

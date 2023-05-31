@@ -1,0 +1,11 @@
+
+temp_july = [26.2, 28.5, 27.8, 26.7, 23.5, 22.8, 22.1, 21.5, 22.3, 23.5, 
+             24.7, 25.6, 26.4, 25.8, 25.7, 28.2, 30.4, 31.5, 29.8, 27.5, 
+             26.4, 25.6, 23.4, 23.8, 24.6, 22.5, 18.9, 20.7, 23.5, 24.8, 
+             26.1, 26.5]
+
+def count_coldest_days(temps, count):
+    coldest_days = sorted(temps)[:count]
+    return len([temp for temp in temps if temp in coldest_days])
+
+print(count_coldest_days(temp_july, 3))

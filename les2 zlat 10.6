@@ -1,0 +1,13 @@
+
+import random
+
+# получаем 50 случайных целых чисел, равных 0 или 1
+numbers = [random.randint(0, 1) for i in range(50)]
+
+# подсчитываем количество единиц и нулей
+ones_count = numbers.count(1)
+zeros_count = numbers.count(0)
+
+# выводим количество единиц и нулей на экран
+print("Количество единиц:", ones_count)
+print("Количество нулей:", zeros_count)

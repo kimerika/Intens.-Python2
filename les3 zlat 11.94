@@ -1,0 +1,22 @@
+heights = [170, 165, -175, 168, -180, ... ]
+
+boys_count = 0
+boys_height_sum = 0
+girls_count = 0
+girls_height_sum = 0
+
+for height in heights:
+    if height < 0:
+        boys_count += 1
+        boys_height_sum += height
+    else:
+        girls_count += 1
+        girls_height_sum += height
+
+boys_average_height = boys_height_sum / boys_count
+girls_average_height = girls_height_sum / girls_count
+
+if boys_average_height - girls_average_height > 10:
+    print("Средний рост мальчиков превышает средний рост девочек более чем на 10 см")
+else:
+    print("Средний рост мальчиков не превышает средний рост девочек более чем на 10 см")

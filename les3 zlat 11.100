@@ -1,0 +1,12 @@
+grades = [4, 3, 5, 2, 4, 4, 3, 5, 4, 5, 3, 2, 4, 4, 5, 3, 2, 5, 3, 4, 5, 4]
+average_grade = sum(grades) / len(grades)
+
+below_average_grades = []
+for i in range(len(grades)):
+    if grades[i] < average_grade:
+        below_average_grades.append(i+1)
+
+print(f"The number of students with a grade below the average ({average_grade:.1f}) is {len(below_average_grades)}")
+print("The students with a grade below the average are:")
+for i in below_average_grades:
+    print("Student", i)

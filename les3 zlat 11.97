@@ -1,0 +1,11 @@
+
+heights = [170, 168, 165, 172, 180, 164, 176, 178, 170, 172, 168, 174, 166, 162, 170, 175, 168, 170, 172, 178, 180, 172, 167, 173, 170]
+
+average_height = sum(heights) / len(heights)
+
+count = 0
+for height in heights:
+    if height > average_height:
+        count += 1
+
+print("Количество учеников, рост которых больше среднего роста по классу:", count)

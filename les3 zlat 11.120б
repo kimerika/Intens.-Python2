@@ -1,0 +1,5 @@
+
+last_fastest_car_index = len(car_speeds) - car_speeds[::-1].index(fastest_car_speed)
+
+print("Порядковый номер последнего самого быстрого автомобиля: ", last_fastest_car_index)
+

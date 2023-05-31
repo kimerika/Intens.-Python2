@@ -1,0 +1,11 @@
+arr = [10, -4, 12, 56, -4, -89]
+count = 0
+
+if len(arr) > 1:
+    prev = arr[0]
+    for i in arr[1:]:
+        if (prev * i) < 0:
+            count += 1
+        prev = i
+
+print("Количество смен знака:", count)

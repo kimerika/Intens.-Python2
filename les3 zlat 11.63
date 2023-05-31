@@ -1,0 +1,12 @@
+
+precipitation = {"январь": 10, "февраль": 8, "март": 12, "апрель": 6,
+                 "май": 7, "июнь": 14, "июль": 5, "август": 4,
+                 "сентябрь": 11, "октябрь": 5, "ноябрь": 8, "декабрь": 9}
+
+months = ["март", "июнь", "сентябрь", "декабрь"]
+
+total_precipitation_for_selected_months = 0
+for month in months:
+    total_precipitation_for_selected_months += precipitation[month]
+
+print("Общее число осадков, выпавших в марте, июне, сентябре и декабре: ", total_precipitation_for_selected_months)

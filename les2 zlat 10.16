@@ -1,0 +1,14 @@
+
+import random 
+
+# Создаем список всех возможных костей домино:
+dominoes = []
+for i in range(7):
+    for j in range(i+1):
+        dominoes.append((i, j))
+
+# Осуществляем выбор случайной кости:
+domino = random.choice(dominoes)
+
+# Выводим состав выбранной кости:
+print("Выбрана кость", domino[0], "-", domino[1])
