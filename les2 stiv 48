@@ -1,0 +1,68 @@
+
+day = int(input("Введите день рождения: "))
+month_input = input("Введите месяц рождения: ")
+
+if month_input.lower() == "январь":
+    if day <= 20:
+        sign = "Козерог"
+    else:
+        sign = "Водолей"
+elif month_input.lower() == "февраль":
+    if day <= 19:
+        sign = "Водолей"
+    else:
+        sign = "Рыбы"
+elif month_input.lower() == "март":
+    if day <= 20:
+        sign = "Рыбы"
+    else:
+        sign = "Овен"
+elif month_input.lower() == "апрель":
+    if day <= 20:
+        sign = "Овен"
+    else:
+        sign = "Телец"
+elif month_input.lower() == "май":
+    if day <= 21:
+        sign = "Телец"
+    else:
+        sign = "Близнецы"
+elif month_input.lower() == "июнь":
+    if day <= 21:
+        sign = "Близнецы"
+    else:
+        sign = "Рак"
+elif month_input.lower() == "июль":
+    if day <= 22:
+        sign = "Рак"
+    else:
+        sign = "Лев"
+elif month_input.lower() == "август":
+    if day <= 23:
+        sign = "Лев"
+    else:
+        sign = "Дева"
+elif month_input.lower() == "сентябрь":
+    if day <= 23:
+        sign = "Дева"
+    else:
+        sign = "Весы"
+elif month_input.lower() == "октябрь":
+    if day <= 23:
+        sign = "Весы"
+    else:
+        sign = "Скорпион"
+elif month_input.lower() == "ноябрь":
+    if day <= 22:
+        sign = "Скорпион"
+    else:
+        sign = "Стрелец"
+elif month_input.lower() == "декабрь":
+    if day <= 21:
+        sign = "Стрелец"
+    else:
+        sign = "Козерог"
+else:
+    print("Вы ввели некорректный месяц")
+
+print("Ваш знак зодиака:", sign)

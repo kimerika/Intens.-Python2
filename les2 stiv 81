@@ -1,0 +1,8 @@
+
+binary = input("Введите число в двоичном виде: ")
+
+decimal = 0
+for i, bit in enumerate(reversed(binary)):
+    decimal += int(bit) * 2**i
+
+print(f"{binary} (2) = {decimal} (10)")

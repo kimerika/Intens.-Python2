@@ -1,0 +1,11 @@
+
+grades_dict = {"A": 5, "B": 4, "C": 3, "D": 2, "F": 1}
+
+grade = input("Введите буквенную оценку: ").upper()
+
+if grade in grades_dict:
+    numeric_grade = grades_dict[grade]
+    print("Числовая оценка:", numeric_grade)
+else:
+    print("Ошибка: неверный ввод. Введите одну из следующих буквенных оценок: A, B, C, D, F")
+ 

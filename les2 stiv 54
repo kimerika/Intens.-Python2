@@ -1,0 +1,14 @@
+
+ratings_dict = {0.0: 0, 0.4: 960, 0.6: 1440, 1.0: 2400}
+
+rating = float(input("Введите рейтинг сотрудника: "))
+
+if rating in ratings_dict:
+    bonus = ratings_dict[rating]
+    print("Прибавка к зарплате:", bonus, "руб.")
+else:
+    print("Ошибка: неверный ввод. Введите одно из следующих значений рейтинга: 0.0, 0.4, 0.6, 1.0")
+
+# Сумма прибавки к зарплате всех сотрудников
+total_bonus = sum(ratings_dict.values())
+print("Общая сумма прибавки к зарплате всех сотрудников:", total_bonus, "руб.")

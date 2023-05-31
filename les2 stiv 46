@@ -1,0 +1,15 @@
+
+column_input = input("Введите координаты клетки (буква и число): ")
+column = column_input[0].lower()
+row = int(column_input[1])
+
+if column in ['a', 'c', 'e', 'g']:
+    if row % 2 == 0:
+        print("Клетка", column_input, "белая")
+    else:
+        print("Клетка", column_input, "черная")
+else:
+    if row % 2 == 0:
+        print("Клетка", column_input, "черная")
+    else:
+        print("Клетка", column_input, "белая")

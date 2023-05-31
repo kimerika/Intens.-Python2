@@ -1,0 +1,16 @@
+
+numbers = []
+while True:
+    num = int(input("Введите число: "))
+    if num == 0:
+        break
+    elif len(numbers) == 0 and num == 0:
+        print("Ошибка: первым числом не может быть ноль")
+        continue
+    numbers.append(num)
+
+if len(numbers) == 0:
+    print("Вы не ввели ни одного числа")
+else:
+    avg = sum(numbers) / len(numbers)
+    print("Среднее значение введенных чисел:", avg)

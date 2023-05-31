@@ -1,0 +1,21 @@
+
+x1 = float(input("Введите координату x первой точки: "))
+y1 = float(input("Введите координату y первой точки: "))
+x_prev = x1
+y_prev = y1
+perimeter = 0
+
+while True:
+x = input("Введите координату x следующей точки: ")
+if not x:
+break
+y = float(input("Введите координату y следующей точки: "))
+length = ((float(x) - x_prev)**2 + (y - y_prev)**2)**0.5
+perimeter += length
+x_prev = float(x)
+y_prev = y
+
+length = ((x1 - x_prev)**2 + (y1 - y_prev)**2)**0.5
+perimeter += length
+
+print("Периметр многоугольника равен:", perimeter)

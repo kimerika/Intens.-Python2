@@ -1,0 +1,9 @@
+
+decimal = int(input("Введите число в десятичной системе: "))
+
+binary = ""
+while decimal > 0:
+    binary = str(decimal % 2) + binary
+    decimal //= 2
+
+print(f"{binary} (2) - это двоичное представление числа {decimal} (10)")

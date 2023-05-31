@@ -1,0 +1,27 @@
+
+import math
+
+# Запрос года у пользователя
+year = int(input("Введите год: "))
+
+# Вычисление дня недели для 1 января заданного года
+day_of_the_week = (year + math.floor((year - 1)/4) - math.floor((year - 1)/100) + math.floor((year - 1)/400))%7
+
+# Определение полного названия дня недели
+if day_of_the_week == 0:
+    day_name = "Воскресенье"
+elif day_of_the_week == 1:
+    day_name = "Понедельник"
+elif day_of_the_week == 2:
+    day_name = "Вторник"
+elif day_of_the_week == 3:
+    day_name = "Среда"
+elif day_of_the_week == 4:
+    day_name = "Четверг"
+elif day_of_the_week == 5:
+    day_name = "Пятница"
+else:
+    day_name = "Суббота"
+
+# Вывод результата на экран
+print("1 января", year, "года - это", day_name)

@@ -1,0 +1,16 @@
+
+total_sum = 0
+cash_sum = 0
+
+while True:
+price_str = input("Введите цену (или оставьте строку пустой для завершения): ")
+if not price_str:
+break
+price = float(price_str)
+total_sum += price
+cash_sum += round(price * 20) / 20
+
+cash_sum = round(cash_sum * 100) / 100
+
+print("Сумма всех введенных цен: {:.2f}".format(total_sum))
+print("Сумма для оплаты наличными: {:.2f}".format(cash_sum))

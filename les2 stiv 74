@@ -1,0 +1,22 @@
+
+def caesar_cipher(text, shift):
+    ciphered_text = ''
+    for char in text:
+        if char.isalpha():
+            if char.isupper():
+                ciphered_char = chr((ord(char) + shift - 65) % 26 + 65)
+            else:
+                ciphered_char = chr((ord(char) + shift - 97) % 26 + 97)
+        else:
+            ciphered_char = char
+        ciphered_text += ciphered_char
+    return ciphered_text
+
+text = input("Введите фразу для шифрования: ")
+shift = int(input("Введите количество символов для сдвига: "))
+
+ciphered_text = caesar_cipher(text, shift)
+print("Зашифрованная фраза: ", ciphered_text)
+
+deciphered_text = caesar_cipher(ciphered_text, -shift)
+print("Расшифрованная фраза: ", deciphered_text)

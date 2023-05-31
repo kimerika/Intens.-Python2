@@ -1,0 +1,10 @@
+
+pi_approximation = 0
+current_term = 1
+sign = 1
+
+for i in range(15):
+    pi_approximation += sign * current_term
+    current_term = current_term / 3.0
+    sign = -sign
+    print("Приближение {} равно {}".format(i+1, 4*pi_approximation))

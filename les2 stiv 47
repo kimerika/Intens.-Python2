@@ -1,0 +1,16 @@
+
+month_input = input("Введите месяц: ")
+day = int(input("Введите день: "))
+
+if month_input.lower() in ['декабрь', 'январь', 'февраль']:
+    season = "зима"
+elif month_input.lower() in ['март', 'апрель', 'май']:
+    season = "весна"
+elif month_input.lower() in ['июнь', 'июль', 'август']:
+    season = "лето"
+elif month_input.lower() in ['сентябрь', 'октябрь', 'ноябрь']:
+    season = "осень"
+else:
+    print("Вы ввели некорректный месяц")
+
+print("Сезон:", season)

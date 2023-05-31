@@ -1,0 +1,20 @@
+
+def prime_factors(n):
+    factors = []
+    factor = 2
+    while factor <= n:
+        if n % factor == 0:
+            factors.append(factor)
+            n //= factor
+        else:
+            factor += 1
+    return factors
+
+n = int(input("Введите число: "))
+if n < 2:
+    print("Ошибка: число должно быть >= 2")
+else:
+    factors = prime_factors(n)
+    print("Простые множители:")
+    for factor in factors:
+        print(factor)

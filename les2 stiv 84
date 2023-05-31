@@ -1,0 +1,22 @@
+
+import random
+
+simulations = 10
+total_trials = 0
+
+for i in range(simulations):
+    trials = 0
+    consecutive_count = 0
+    while consecutive_count < 3:
+        toss = random.choice(['О', 'Р'])
+        print(toss, end=' ')
+        if (consecutive_count == 0) or (toss == prev_toss):
+            consecutive_count += 1
+        else:
+            consecutive_count = 1
+        prev_toss = toss
+        trials += 1
+    total_trials += trials
+    print(f"(попыток: {trials})")
+
+print(f"Среднее количество попыток: {total_trials/simulations:.1f}")

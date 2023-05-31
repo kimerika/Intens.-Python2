@@ -1,0 +1,19 @@
+
+import random
+
+max_num = random.randint(1, 100)
+num_changes = 0
+
+print(f"Первое случайное число: {max_num}")
+
+for i in range(99):
+    num = random.randint(1, 100)
+    if num > max_num:
+        max_num = num
+        num_changes += 1
+        print(f"{num} (новый максимум)")
+    else:
+        print(num)
+
+print(f"Максимальное число в ряде: {max_num}")
+print(f"Количество смен максимального значения: {num_changes}")

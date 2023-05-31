@@ -1,0 +1,22 @@
+
+ages = []
+while True:
+    age_input = input("Введите возраст посетителя (для завершения введите пустую строку): ")
+    if not age_input:
+        break
+    age = int(age_input)
+    ages.append(age)
+
+total_price = 0
+for age in ages:
+    if age < 2:
+        ticket_price = 0
+    elif age < 13:
+        ticket_price = 14
+    elif age < 66:
+        ticket_price = 23
+    else:
+        ticket_price = 18
+    total_price += ticket_price
+
+print("Общая цена билетов: {:.2f}".format(total_price))

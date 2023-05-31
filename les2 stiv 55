@@ -1,0 +1,17 @@
+
+requency = float(input("Введите частоту в Гц: "))
+
+if frequency < 3e9:
+    print("Это радиоволны")
+elif frequency < 3e12:
+    print("Это микроволны")
+elif frequency < 4.3e14:
+    print("Это инфракрасное излучение")
+elif frequency < 7.5e14:
+    print("Это видимый свет")
+elif frequency < 3e17:
+    print("Это ультрафиолетовое излучение")
+elif frequency < 3e19:
+    print("Это рентгеновские лучи")
+else:
+    print("Это гамма-излучение")
