@@ -1,0 +1,19 @@
+
+def buy_animals(total_money, total_heads):
+    count_bulls = 0
+    count_cows = 0
+    count_calves = 0
+    for num_bulls in range(total_heads+1):
+        for num_cows in range(total_heads-num_bulls+1):
+            num_calves = total_heads - num_bulls - num_cows
+            cost = num_bulls * 10 + num_cows * 5 + num_calves * 0.5
+            if cost == total_money:
+                count_bulls = num_bulls
+                count_cows = num_cows
+                count_calves = num_calves
+    return count_bulls, count_cows, count_calves
+
+# Пример использования функции
+total_money = 100
+total_heads = 100
+print(buy_animals(total_money, total_heads))

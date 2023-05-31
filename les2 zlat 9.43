@@ -1,0 +1,15 @@
+
+def euclidean_algorithm(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+
+def gcd(a, b, *args):
+    result = euclidean_algorithm(a, b)
+    for num in args:
+        result = euclidean_algorithm(result, num)
+    return result
+
+# Пример использования функции
+nums = [12, 18, 24, 30]
+print(gcd(*nums)) # Выведет 6, потому что НОД(12, 18, 24, 30) = НОД(НОД(12, 18), 24, 30) = НОД(6, 24, 30) = 6

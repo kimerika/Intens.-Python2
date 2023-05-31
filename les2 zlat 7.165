@@ -1,0 +1,14 @@
+
+n = 25  # количество автомобилей
+lengths = list(map(float, input("Введите длины участков пути (в км) через пробел: ").split()))
+times = list(map(float, input("Введите время, затраченное каждым автомобилем (в часах), через пробел: ").split()))
+max_average_speed = 0
+index = 0
+
+for i in range(n):
+    speed = lengths[i] / times[i]
+    if speed > max_average_speed:
+        max_average_speed = speed
+        index = i + 1
+
+print(f"Порядковый номер автомобиля с максимальной средней скоростью: {index}")

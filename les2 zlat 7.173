@@ -1,0 +1,16 @@
+
+# зададим список максимальных скоростей
+speeds = [185, 205, 195, 198, 210, 192, 176, 168, 172, 180, 200, 190]
+
+# найдем максимальную скорость
+max_speed = max(speeds)
+
+# найдем следующую по значению скорость
+second_max = 0
+for speed in speeds:
+    if speed != max_speed:
+        if speed > second_max:
+            second_max = speed
+
+# выведем результат на экран
+print("The speed that only one car has passed is:", second_max)

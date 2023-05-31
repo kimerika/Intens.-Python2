@@ -1,0 +1,25 @@
+
+def gcd(a, b):
+    """
+    Функция для нахождения НОД двух чисел
+    """
+    if a == 0:
+        return b
+    return gcd(b % a, a)
+
+def coprime_numbers(p, t):
+    """
+    Функция для нахождения всех натуральных чисел,
+    меньших п, и взаимно простых с t
+    """
+    result = []
+    for i in range(1, p):
+        if gcd(i, t) == 1:
+            result.append(i)
+    return result
+
+# Пример использования функции
+p = 10
+t = 3
+result = coprime_numbers(p, t)
+print(result)  # [1, 2, 4, 5, 7, 8]

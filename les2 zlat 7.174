@@ -1,0 +1,12 @@
+
+# создадим словарь с результатами команд
+results = {"Team 1": 26, "Team 2": 32, "Team 3": 20, "Team 4": 28, "Team 5": 26, "Team 6": 30,
+           "Team 7": 17, "Team 8": 12, "Team 9": 22, "Team 10": 24, "Team 11": 18, "Team 12": 16}
+
+# создаем список значений словаря и сортируем его в обратном порядке
+sorted_results = sorted(list(results.values()), reverse=True)
+
+# выводим три самых больших значения из списка, соответствующих первому, второму и третьему месту
+print("The first place result is:", sorted_results[0])
+print("The second place result is:", sorted_results[1])
+print("The third place result is:", sorted_results[2])

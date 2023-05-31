@@ -1,0 +1,32 @@
+
+1. # Вводим оценки по строкам
+grades = []
+for i in range(12):
+    row = []
+    for j in range(3):
+        grade = int(input(f"Введите оценку ученика {i+1} за предмет {j+1}: "))
+        row.append(grade)
+    grades.append(row)
+
+# Считаем суммы оценок каждого ученика
+for i in range(12):
+    sum = 0
+    for j in range(3):
+        sum += grades[i][j]
+    print(f"Сумма оценок ученика {i+1}: {sum}")
+
+
+2.
+# Вводим оценки по столбцам
+grades = [[], [], []]
+for i in range(3):
+    for j in range(12):
+        grade = int(input(f"Введите оценку ученика {j+1} за предмет {i+1}: "))
+        grades[i].append(grade)
+
+# Считаем суммы оценок каждого ученика
+for i in range(12):
+    sum = 0
+    for j in range(3):
+        sum += grades[j][i]
+    print(f"Сумма оценок ученика {i+1}: {sum}")

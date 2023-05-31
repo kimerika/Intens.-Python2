@@ -1,0 +1,14 @@
+
+def count_ways(weights, v):
+    n = len(weights)
+    dp = [0] * (v + 1)
+    dp[0] = 1
+    for i in range(n):
+        for j in range(weights[i], v+1):
+            dp[j] += dp[j-weights[i]]
+    return dp[v]
+
+# Пример использования функции
+weights = [100, 200, 300, 500, 1000, 1200, 1400, 1500, 2000, 3000]
+v = 5000
+print(count_ways(weights, v)) # Выведет 10962, т.к. есть 10962 способа составить вес 5000 грамм из гирь данного набора

@@ -1,0 +1,9 @@
+
+
+for num in range(300, 601):
+    divisors_sum = 0
+    for i in range(1, num+1):
+        if num % i == 0:
+            divisors_sum += i
+    if divisors_sum % 10 == 0:
+        print(num)

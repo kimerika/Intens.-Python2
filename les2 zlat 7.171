@@ -1,0 +1,43 @@
+#а)
+numbers = [5, 3, 9, 1, 7, 4]
+max1 = None
+max2 = None
+
+for number in numbers:
+    if max1 is None or number > max1:
+        max2 = max1
+        max1 = number
+    elif max2 is None or number > max2:
+        max2 = number
+
+print("Два максимальных числа: ", max1, max2)
+
+#б)
+def find_two_smallest(numbers):
+    """Функция, которая находит два минимальных элемента списка"""
+    smallest = min(numbers)
+    min_index = numbers.index(smallest)
+    # удаляем первый найденный минимальный элемент из списка
+    numbers.pop(min_index)
+
+    next_smallest = min(numbers)
+    return smallest, next_smallest
+
+# тест
+numbers = [7, 2, 6, 3, 5, 1, 4]
+smallest1, smallest2 = find_two_smallest(numbers)
+print("The smallest number is:", smallest1)
+print("The second smallest number is:", smallest2)
+
+#в)
+# создадим список целых чисел
+numbers = [7, 2, 6, 3, 5, 1, 4]
+
+# создадим две переменные для хранения текущего минимального и следующего минимального элементов
+min1 = min(numbers)
+numbers.remove(min1)
+min2 = min(numbers)
+
+# выведем результаты на экран
+print("The smallest number is:", min1)
+print("The second smallest number is:", min2)

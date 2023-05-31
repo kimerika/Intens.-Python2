@@ -1,0 +1,39 @@
+
+а)
+parallel_classes = [
+    [30, 25, 28, 32],  # первая параллель
+    [29, 30, 31, 27],  # вторая параллель
+    [25, 29, 26, 28],  # третья параллель
+    [27, 31, 30, 25],  # четвертая параллель
+    [28, 27, 26, 29],  # пятая параллель
+    [26, 30, 27, 28],  # шестая параллель
+    [31, 26, 29, 27],  # седьмая параллель
+    [28, 32, 27, 30],  # восьмая параллель
+    [27, 29, 31, 26],  # девятая параллель
+    [32, 28, 26, 27],  # десятая параллель
+    [30, 27, 25, 29],  # одиннадцатая параллель
+]
+
+min_class_sizes = []
+# поиск минимальной численности класса в каждой параллели
+for classes in parallel_classes:
+    min_class_size = min(classes)
+    min_class_sizes.append(min_class_size)
+    print(f'В этой школе в параллели {parallel_classes.index(classes)+1}, '
+          f'минимальное количество учеников в классе: {min_class_size}')
+
+# определение минимальной численности класса среди всех букв
+min_class_sizes_by_letter = []
+
+for i in range(4):
+    letter_classes = []
+    for classes in parallel_classes:
+        letter_classes.append(classes[i])
+    min_class_size = min(letter_classes)
+    min_class_sizes_by_letter.append(min_class_size)
+    print(f'Среди классов с буквой {chr(65+i)}, '
+          f'минимальное количество учеников в классе: {min_class_size}')
+
+min_class_size_overall = min(min_class_sizes)
+
+print(f'Самый малочисленный класс в этой школе имеет {min_class_size_overall} учеников')

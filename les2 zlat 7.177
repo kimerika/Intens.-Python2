@@ -1,0 +1,12 @@
+
+sequence = [1, 3, 8, 4, 2, 8, 5, 7, 8, 6, 9, 8, 0]
+L = sequence[-1]
+
+new_sequence_A_0 = sequence[:-2] + [0, L]
+new_sequence_A_8 = sequence[:-1] + [L]
+
+count_A_0 = new_sequence_A_0.count(8)
+count_A_8 = new_sequence_A_8.count(8) + 1
+
+print("При А = 0 количество максимальных элементов:", count_A_0)
+print("При А = 8 количество максимальных элементов:", count_A_8)

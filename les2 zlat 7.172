@@ -1,0 +1,16 @@
+
+# создадим список результатов
+results = [9.81, 10.05, 9.77, 11.2, 10.06, 9.98, 9.74, 10.78, 9.87, 9.69, 10.23, 9.79, 9.88, 10.02, 10.15, 10.27, 10.16, 10.94, 9.83, 10.64, 10.99, 10.83]
+
+# найдем первое место
+best_result = min(results)
+
+# удалаем результат первого места из списка
+results.remove(best_result)
+
+# найдем второе место
+second_best = min(results)
+
+# выведем результаты на экран
+print("The winner result is:", best_result)
+print("The second place result is:", second_best)

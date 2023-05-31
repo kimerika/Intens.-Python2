@@ -1,0 +1,15 @@
+
+results = [35, 42, 31, 49, 38, 27, 45]
+first_place = None
+last_place = None
+
+for i in range(len(results)):
+    if first_place is None or results[i] < results[first_place]:
+        first_place = i
+    if last_place is None or results[i] > results[last_place]:
+        last_place = i
+        
+if first_place < last_place:
+    print("Да, этап, на котором участник выиграл, был раньше этапа, на котором он занял последнее место.")
+else:
+    print("Нет, этап, на котором участник выиграл, был после этапа, на котором он занял последнее место.")

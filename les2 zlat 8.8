@@ -1,0 +1,11 @@
+
+a = float(input("Введите а: "))
+for p in range(2, 100001):
+    s = 0
+    for i in range(2, p+1):
+        s = s + 1/i
+    if 1 + s < a:
+        continue
+    else:
+        print(p)
+        break

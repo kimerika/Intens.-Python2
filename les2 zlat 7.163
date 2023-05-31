@@ -1,0 +1,23 @@
+
+n = int(input("Введите количество покупателей: "))
+t = []
+s = []
+min_time = float('inf')
+index = 0
+
+for i in range(n):
+    ti = float(input(f"Введите время обслуживания покупателя {i+1}: "))
+    t.append(ti)
+    if i == 0:
+        si = ti
+    else:
+        si = s[i-1] + ti
+    s.append(si)
+    if si + ti < min_time:
+        min_time = si + ti
+        index = i
+
+print("Время пребывания в очереди:")
+for i in range(n):
+    print(f"Покупатель {i+1}: {s[i]:.2f}")
+print(f"Номер покупателя с минимальным временем обслуживания: {index+1}")

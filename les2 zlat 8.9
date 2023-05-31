@@ -1,0 +1,23 @@
+
+a = float(input("Введите а: "))
+
+p = 2
+s = 0
+
+while (1 + s >= a):
+    s = 0
+    for i in range(2, p + 1):
+        s += 1/i
+    p += 1
+
+print("Наименьшее p:", p - 1)
+
+8.10
+a = float(input("Введите а: "))
+s = 0
+for i in range(1, 100001):
+    s = s + 1/i
+    if s < a:
+        print(1+s)
+    else:
+        break

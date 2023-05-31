@@ -1,0 +1,66 @@
+
+а)
+
+# Ввод зарплат работников за первый квартал
+salaries = []
+for i in range(12):
+    print(f"Введите зарплату работника {i+1} за первый квартал (через пробел): ")
+    salaries.append(list(map(float, input().split())))
+
+# Общая сумма, выплаченная за квартал всем работникам
+total_salary = 0
+for s in salaries:
+    total_salary += sum(s)
+print(f"Общая сумма, выплаченная за квартал всем работникам: {total_salary}")
+
+# Зарплата, полученная за квартал каждым работником
+for i, s in enumerate(salaries):
+    print(f"Зарплата работника {i+1} за первый квартал: {sum(s)}")
+
+# Общая зарплата всех работников за каждый месяц
+for m in range(3):
+    monthly_salary = 0
+    for s in salaries:
+        monthly_salary += s[m]
+    print(f"Общая зарплата всех работников за {m+1}-й месяц: {monthly_salary}")
+
+б)
+
+# Ввод зарплат работников за первый квартал
+salaries = [[float(input(f"Введите зарплату работника {i+1} за {j+1}-й месяц: ")) for j in range(3)] for i in range(12)]
+
+# Общая сумма, выплаченная за квартал всем работникам
+total_salary = sum(sum(s) for s in salaries)
+print(f"Общая сумма, выплаченная за квартал всем работникам: {total_salary}")
+
+# Зарплата, полученная за квартал каждым работником
+for i, s in enumerate(salaries):
+    print(f"Зарплата работника {i+1} за первый квартал: {sum(s)}")
+
+# Общая зарплата всех работников за каждый месяц
+monthly_salary = [sum(s[m] for s in salaries) for m in range(3)]
+for m in range(3):
+    print(f"Общая зарплата всех работников за {m+1}-й месяц: {monthly_salary[m]}")
+
+в)
+
+import pandas as pd
+
+# Ввод зарплат работников за первый квартал
+data = pd.DataFrame(columns=[f"Работник {i+1}" for i in range(12)], index=["Январь", "Февраль", "Март"])
+for i in range(12):
+    for j in range(3):
+        data.iloc[j, i] = float(input(f"Введите зарплату работника {i+1} за {data.index[j]}: "))
+
+# Общая сумма, выплаченная за квартал всем работникам
+total_salary = data.sum().sum()
+print(f"Общая сумма, выплаченная за квартал всем работникам: {total_salary}")
+
+# Зарплата, полученная за квартал каждым работником
+for i in range(12):
+    print(f"Зарплата работника {i+1} за первый квартал: {data.iloc[:, i].sum()}")
+
+# Общая зарплата всех работников за каждый месяц
+monthly_salary = data.sum()
+for m in range(3):
+    print(f"Общая зарплата всех работников за {data.index[m]}: {monthly_salary[m]}")

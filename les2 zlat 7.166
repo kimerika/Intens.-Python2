@@ -1,0 +1,14 @@
+
+n = 20  # количество сопротивлений
+voltages = list(map(float, input("Введите напряжения на зажимах каждого сопротивления через пробел: ").split()))
+resistances = list(map(float, input("Введите характеристики каждого сопротивления через пробел: ").split()))
+min_current = float('inf')
+index = 0
+
+for i in range(n):
+    current = voltages[i] / resistances[i]
+    if current < min_current:
+        min_current = current
+        index = i + 1
+
+print(f"Порядковый номер сопротивления с минимальным током: {index}")

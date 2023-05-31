@@ -1,0 +1,9 @@
+
+
+def digital_root(num):
+    while num > 9:
+        num = sum(int(digit) for digit in str(num))
+    return num
+
+# Пример использования функции
+print(digital_root(9875)) # Выведет 2, потому что цифровой корень числа 9875 равен 2 (последовательность операций: 9+8+7+5=29, 2+9=11, 1+1=2)

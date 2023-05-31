@@ -1,0 +1,15 @@
+
+# задаем список температур
+temperatures = [27, 25, 23, 24, 26, 24, 23, 23, 22, 21, 19, 20, 23, 24, 22, 23, 25, 27, 29, 28, 26, 25, 24, 23, 21, 20, 19, 21, 23, 24, 26]
+
+# создадим список кортежей с парами (день, температура)
+days_temperatures = list(enumerate(temperatures, 1))
+
+# отсортируем пары по температуре
+sorted_days_temperatures = sorted(days_temperatures, key=lambda x: x[1])
+
+# найдем первый и второй дни с наименьшей температурой
+coolest_days = [sorted_days_temperatures[0][0], sorted_days_temperatures[1][0]]
+
+# выведем результат на экран
+print("The coolest days in July were:", coolest_days)

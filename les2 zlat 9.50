@@ -1,0 +1,15 @@
+def gcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+def get_coprimes(n):
+    coprimes = []
+    for i in range(1, n):
+        if gcd(i, n) == 1:
+            coprimes.append(i)
+    return coprimes
+
+number = int(input("Введите натуральное число: "))
+coprimes = get_coprimes(number)
+print("Натуральные числа меньше {}, взаимно простые с ним: {}".format(number, coprimes))

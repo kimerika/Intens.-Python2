@@ -1,0 +1,16 @@
+
+def sum_divisors(n):
+    return sum([i for i in range(1, n) if n % i == 0])
+
+a, b = map(int, input("Введите интервал a,b через пробел: ").split())
+max_sum = 0
+max_num = 0
+
+for num in range(a, b+1):
+    div_sum = sum_divisors(num)
+    if div_sum > max_sum:
+        max_sum = div_sum
+        max_num = num
+
+print("Натуральное число с максимальной суммой делителей в интервале от", a, "до", b, ":", max_num)
+print("Сумма делителей этого числа:", max_sum)

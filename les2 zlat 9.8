@@ -1,0 +1,47 @@
+
+а)
+# Ввод оценок учеников
+grades = []
+for i in range(15):
+    print(f"Введите оценки ученика {i+1} по трем предметам (через пробел):")
+    grades.append(list(map(int, input().split())))
+
+# Определение количества пятерок
+total_fives = sum(g.count(5) for g in grades)
+
+# Вывод результата
+print(f"Общее количество пятерок: {total_fives}")
+ б)
+
+# Ввод оценок учеников
+grades = []
+for i in range(15):
+    print(f"Введите оценки ученика {i+1} по трем предметам (через пробел):")
+    grades.append(list(map(int, input().split())))
+
+# Определение количества троек для каждого ученика
+students_threes = []
+for g in grades:
+    students_threes.append(g.count(3))
+
+# Вывод результата
+for i, t in enumerate(students_threes):
+    print(f"Количество троек ученика {i+1}: {t}")
+
+в)
+
+# Ввод оценок учеников
+grades = []
+for i in range(15):
+    print(f"Введите оценки ученика {i+1} по трем предметам (через пробел):")
+    grades.append(list(map(int, input().split())))
+
+# Определение количества двоек по каждому предмету
+subject_twos = []
+for j in range(3):
+    subject_twos.append(sum(1 for g in grades if g[j] == 2))
+
+# Вывод результата
+print(f"Количество двоек по первому предмету: {subject_twos[0]}")
+print(f"Количество двоек по второму предмету: {subject_twos[1]}")
+print(f"Количество двоек по третьему предмету: {subject_twos[2]}")

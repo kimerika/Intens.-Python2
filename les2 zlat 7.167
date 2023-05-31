@@ -1,0 +1,24 @@
+
+n = int(input("Введите количество чисел: "))
+nums = list(map(int, input("Введите числа через пробел: ").split()))
+max_num_index = 0
+min_num_index = 0
+
+for i in range(n):
+    if nums[i] > nums[max_num_index]:
+        max_num_index = i
+    elif nums[i] < nums[min_num_index]:
+        min_num_index = i
+    if max_num_index < min_num_index:
+        print(f"Первым в последовательности встретится максимальное число {nums[max_num_index]}")
+        break
+    elif min_num_index < max_num_index:
+        print(f"Первым в последовательности встретится минимальное число {nums[min_num_index]}")
+        break
+    elif i == n-1:
+        if max_num_index == min_num_index:
+            print(f"Первым в последовательности встретится число {nums[max_num_index]}")
+        elif max_num_index < min_num_index:
+            print(f"Первым в последовательности встретится максимальное число {nums[max_num_index]}")
+        else:
+            print(f"Первым в последовательности встретится минимальное число {nums[min_num_index]}")

@@ -1,0 +1,30 @@
+
+#a)
+n = int(input("Введите количество пар чисел: "))
+max_average = 0
+index = 0
+
+for i in range(n):
+    a, b = map(int, input("Введите пару чисел через пробел: ").split())
+    average = (a + b) / 2
+    if average > max_average:
+        max_average = average
+        index = i
+
+print(f"Пара с максимальным средним арифметическим значением: ({a}, {b}), номер пары: {index}")
+
+#б)
+import math
+
+n = int(input("Введите количество пар чисел: "))
+min_average = float('inf')
+index = 0
+
+for i in range(n):
+    a, b = map(int, input(f"Введите пару чисел {i+1} через пробел: ").split())
+    average = math.sqrt(a * b)
+    if average < min_average:
+        min_average = average
+        index = i
+
+print(f"Пара с минимальным средним геометрическим значением: ({a}, {b}), номер пары: {index}")

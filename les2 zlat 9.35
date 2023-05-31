@@ -1,0 +1,12 @@
+def count_currency(amount):
+    currency = [64, 32, 16, 8, 4, 2, 1]
+    counts = [0] * len(currency)
+    for i, val in enumerate(currency):
+        counts[i] = amount // val
+        amount = amount % val
+    return counts
+
+p = int(input("Введите сумму для размена: "))
+for i in range(p, p+11):
+    counts = count_currency(i)
+    print("Сумма: %2d Достоинства купюр: %d  -  %d  -  %d  -  %d  -  %d  -  %d  -  %d" % (i, counts[0], counts[1], counts[2], counts[3], counts[4], counts[5], counts[6]))
